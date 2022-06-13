@@ -3,15 +3,17 @@
 
 #include "types.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef struct list_int
+// FIXME: Look for a better name!
+// SLListInt = Singly Linked List for Int
+typedef struct no
 {
     int value;
-    struct list_int *next;
-} list_int;
+    struct no* next;
+} SLListInt;
 
-int create_list(data_type type);
+bool create_list(SLListInt** first, int value);
+bool insert_int(SLListInt** first, int value);
+void print_list(SLListInt** first);
+void destroy_list(SLListInt** first);
 
 #endif

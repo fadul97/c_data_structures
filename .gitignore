@@ -1,1 +1,3 @@
 build/
+.ccls
+include/list2.c

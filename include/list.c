@@ -56,6 +56,99 @@ bool insert_int(SLListInt** first, int value)
     previous->next = aux;
 }
 
+bool remove_int(SLListInt** first, int value)
+{
+    if((*first) == NULL)
+        return false;
+    
+    SLListInt* aux = (*first);
+    SLListInt* previous = NULL;
+    while((aux != NULL) && (aux->value != value))
+    {
+        previous = aux;
+        aux = aux->next;
+    }
+
+    if(previous == NULL)
+    {
+        (*first) = aux->next;
+        free(aux);
+        return true;
+    }
+    else
+    {
+        if(aux == NULL)
+        {
+            printf("%d nao tem na lista.\n", value);
+            return false;
+        }
+        else
+        {
+            printf("Cheguei, previous = %d e aux = %d\n", previous->value, aux->value);
+            if(aux->next == NULL)
+            {
+                previous->next = NULL;
+                free(aux);
+                return true;
+            }
+            else
+            {
+                previous = aux->next;
+                free(aux);
+                return true;
+            }
+        }
+    }
+}
+
+/*
+bool remove_int2(SLListInt** first, int value)
+{
+    if((*first) == NULL)
+        return false;
+    
+    SLListInt* aux = (*first);
+    SLListInt* previous = NULL;
+    while((aux->next != NULL) && (aux->value != value))
+    {
+        previous = aux;
+        aux = aux->next;
+    }
+
+    if(previous == NULL)
+    {
+        (*first) = aux->next;
+        free(aux);
+        return true;
+    }
+    else
+    {
+        if(aux->next == NULL)
+        {
+            previous->next = NULL;
+            free(aux);
+            return true;
+        }
+        else
+        {
+            printf("Cheguei, previous = %d e aux = %d\n", previous->value, aux->value);
+            if(aux->next == NULL)
+            {
+                previous->next = NULL;
+                free(aux);
+                return true;
+            }
+            else
+            {
+                previous = aux->next;
+                free(aux);
+                return true;
+            }
+        }
+    }
+}
+*/
+
 void print_list(SLListInt** first)
 {
     if((*first) == NULL)

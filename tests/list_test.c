@@ -25,6 +25,12 @@ int main(int argc, char **argv)
         insert_int(&first, n);
     }
 
+    insert_int(&first, 111);
+
+    print_list(&first);
+
+    remove_int(&first, 112);
+
     print_list(&first);
 
     destroy_list(&first);

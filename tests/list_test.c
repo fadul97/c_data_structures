@@ -29,9 +29,13 @@ int main(int argc, char **argv)
 
     print_list(&first);
 
-    remove_int(&first, 112);
+    printf("First value: %d\n", get_first(&first)->value);
+    printf("Last value: %d\n", get_last(&first)->value);
 
-    print_list(&first);
+    remove_int(&first, 111);
+
+    printf("First value: %d\n", get_first(&first)->value);
+    printf("Last value: %d\n", get_last(&first)->value);
 
     destroy_list(&first);
 

@@ -79,12 +79,12 @@ bool remove_int(SLListInt** first, int value)
     {
         if(aux == NULL)
         {
-            printf("%d nao tem na lista.\n", value);
+            printf("%d not in list.\n", value);
             return false;
         }
         else
         {
-            printf("Cheguei, previous = %d e aux = %d\n", previous->value, aux->value);
+            printf("previous = %d e aux = %d\n", previous->value, aux->value);
             if(aux->next == NULL)
             {
                 previous->next = NULL;
@@ -101,53 +101,25 @@ bool remove_int(SLListInt** first, int value)
     }
 }
 
-/*
-bool remove_int2(SLListInt** first, int value)
+SLListInt* get_first(SLListInt** first)
 {
     if((*first) == NULL)
-        return false;
+        return NULL;
+    
+    return (*first);
+}
+
+SLListInt* get_last(SLListInt** first)
+{
+    if((*first) == NULL)
+        return NULL;
     
     SLListInt* aux = (*first);
-    SLListInt* previous = NULL;
-    while((aux->next != NULL) && (aux->value != value))
-    {
-        previous = aux;
+    while(aux->next != NULL)
         aux = aux->next;
-    }
-
-    if(previous == NULL)
-    {
-        (*first) = aux->next;
-        free(aux);
-        return true;
-    }
-    else
-    {
-        if(aux->next == NULL)
-        {
-            previous->next = NULL;
-            free(aux);
-            return true;
-        }
-        else
-        {
-            printf("Cheguei, previous = %d e aux = %d\n", previous->value, aux->value);
-            if(aux->next == NULL)
-            {
-                previous->next = NULL;
-                free(aux);
-                return true;
-            }
-            else
-            {
-                previous = aux->next;
-                free(aux);
-                return true;
-            }
-        }
-    }
+    
+    return aux;
 }
-*/
 
 void print_list(SLListInt** first)
 {

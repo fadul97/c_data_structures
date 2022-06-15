@@ -14,7 +14,8 @@ typedef struct no
 bool create_list(SLListInt** first, int value);
 bool insert_int(SLListInt** first, int value);
 bool remove_int(SLListInt** first, int value);
-//bool remove_int2(SLListInt** first, int value);
+SLListInt* get_first(SLListInt** first);
+SLListInt* get_last(SLListInt** first);
 void print_list(SLListInt** first);
 void destroy_list(SLListInt** first);
 
